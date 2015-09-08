@@ -10,7 +10,7 @@
 
 # define tam 8
 
-typedef struct tipo_curso{	int interaccion[tam][tam];  }Curso;
+typedef struct tipo_curso{	int interaccion[tam][tam];  Alumno alumnos[tam][tam]}Curso;
 //Aquí sirve para la interacción, osea estatico.
 typedef struct tipo_alumno{	char letra;	int pos;}Alumno;
 
@@ -26,20 +26,28 @@ void inicializar_alumnos (Alumno AlumnoS[tam]){
 	AlumnoS[8]->letra='i'; Alumnos[8]->pos=8;
 }
 
-Curso inicializar_curso (Alumno alumnoS[tam]){
-//			0.1.2.3.4.5.6.7.8
-	Curso curso={	0,1,1,1,1,0,0,0,0,/*0*/
-		     	1,0,1,0,0,0,0,0,0,/*1*/
-		     	1,1,0,0,0,0,0,0,0,/*2*/
-		     	0,0,0,0,1,1,0,0,0,/*3*/
-		     	0,0,1,1,0,1,0,0,0,/*4*/
-			0,0,0,1,1,0,0,0,0,/*5*/
-			0,0,0,0,0,0,0,1,1,/*6*/
-			0,0,0,0,0,0,1,0,1,/*7*/
-			0,0,0,0,0,0,1,1,0;}/*8*/
+Curso inicializar_curso (){
+//				0.1.2.3.4.5.6.7.8
+	Curso curso[tam][tam]={	0,1,1,1,1,0,0,0,0,/*0*/
+		     		1,0,1,0,0,0,0,0,0,/*1*/
+		     		1,1,0,0,0,0,0,0,0,/*2*/
+		     		0,0,0,0,1,1,0,0,0,/*3*/
+		     		0,0,1,1,0,1,0,0,0,/*4*/
+				0,0,0,1,1,0,0,0,0,/*5*/
+				0,0,0,0,0,0,0,1,1,/*6*/
+				0,0,0,0,0,0,1,0,1,/*7*/
+				0,0,0,0,0,0,1,1,0;}/*8*/
 }
 
-void recorrer_grafo(Alumno alumno){
-
-
+void recorrer_grafoBFS(Alumno alumno){
+	//Aquí introducir todo el algoritmo de recorrido 
+	//o bien, crear funciones para hacerlo por partes
+/*
+	
+	
+}
+void recorrer_grafoDFS(Alumno alumno){
+	//Aquí introducir todo el algoritmo de recorrido 
+	//o bien, crear funciones para hacerlo por partes
+	
 }
