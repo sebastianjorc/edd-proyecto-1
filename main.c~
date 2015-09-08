@@ -22,8 +22,6 @@ void introducción (){
 main(){
 	int op,flag=1;
 	introducción();
-	Alumno AlumnoS[tam];
-	inicializar_alumnos(AlumnoS[tam]);
 	Curso curso=inicializar_curso(AlumnoS[tam])
 	while (flag==1){
 		printf("Ingrese la forma para recorrer el Grafo (G):\n");

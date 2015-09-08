@@ -22,7 +22,7 @@ void introducción (){
 main(){
 	int op,flag=1;
 	introducción();
-	Curso curso=inicializar_curso(AlumnoS[tam])
+	Curso curso=inicializar_curso();
 	while (flag==1){
 		printf("Ingrese la forma para recorrer el Grafo (G):\n");
 		printf("BFS (1)\tDFS(2)");
