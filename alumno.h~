@@ -38,6 +38,7 @@ Alumno **inicializar_Q(){
 }
 //---------------------------------------------------------------------------------------------------
 Alumno *nuevo_v(Alumno Q[tam]){
+//	Alumno *aux;
 	Alumno *v=&(Q[0]);
 	for (int i=0; i<(tam-1); i++){
 		Q[i]=Q[(i+1)];

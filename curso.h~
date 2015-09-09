@@ -16,7 +16,7 @@
 //---------------------------------------------------------------------------------------------------
 # define tam 9
 //---------------------------------------------------------------------------------------------------
-typedef struct tipo_curso{	int **interaccion[tam][tam];  Alumno *alumnos[tam];}Curso;
+typedef struct tipo_curso{	int interaccion[tam][tam];  Alumno alumnos[tam];}Curso;
 //Aquí sirve para la interacción, osea estatico.
 //---------------------------------------------------------------------------------------------------
 //	PROTOTIPOS.

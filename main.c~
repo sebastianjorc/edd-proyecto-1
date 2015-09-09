@@ -30,7 +30,7 @@ void introduccion (){
 int main(){
 	int op,flag=1;
 	introduccion();
-	Curso *curso=(Curso*)malloc(sizeof(curso));
+	Curso *curso=(Curso***)malloc(sizeof(curso));
 	curso=inicializar_curso();
 	while (flag==1){
 		printf("Ingrese la forma para recorrer el Grafo (G):\n");
