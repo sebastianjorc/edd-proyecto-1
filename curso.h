@@ -9,6 +9,11 @@
 #define stdlib_h
 #endif
 //---------------------------------------------------------------------------------------------------
+#ifndef alumnos_h
+#include "alumno.h"
+#define alumnos_h
+#endif
+//---------------------------------------------------------------------------------------------------
 # define tam 9
 typedef struct tipo_alumno{	char letra;	int prof,pos;}Alumno;
 //typedef struct tipo_arreglo{	Alumno alumnos[tam];	}
