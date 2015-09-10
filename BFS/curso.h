@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------------------------------
+	//---------------------------------------------------------------------------------------------------
 #ifndef stdio_h
 #include <stdio.h>
 #define stdio_h
@@ -16,16 +16,19 @@
 //---------------------------------------------------------------------------------------------------
 # define tam 9
 //---------------------------------------------------------------------------------------------------
-typedef struct tipo_curso{	int **interaccion[tam][tam];  Alumno *alumnos[tam];}Curso;
+typedef struct tipo_curso{	int interaccion [tam][tam];  Alumno alumnos[tam];}Curso;
 //Aquí sirve para la interacción, osea estatico.
 //---------------------------------------------------------------------------------------------------
 //	PROTOTIPOS.
-Curso *inicializar_curso ();
+Curso inicializar_curso ();
+void inicializar_matriz(){
+}
 //---------------------------------------------------------------------------------------------------
-Curso *inicializar_curso (){
-	Alumno **AlumnoS=(Alumno**)malloc(tam*sizeof(Alumno));
-	AlumnoS=inicializar_alumnos();
-	Curso *curso;
+Curso inicializar_curso (){
+	Alumno alumnoS[tam];
+	inicializar_alumnos(alumnoS);
+	printf("hola1\n");
+	Curso curso;
 //				 0.1.2.3.4.5.6.7.8
 	int matriz[tam][tam]={	{0,1,1,1,1,0,0,0,0},/*0*/
 		     		{1,0,1,0,0,0,0,0,0},/*1*/
@@ -35,11 +38,22 @@ Curso *inicializar_curso (){
 				{0,0,0,1,1,0,0,0,0},/*5*/
 				{0,0,0,0,0,0,0,1,1},/*6*/
 				{0,0,0,0,0,0,1,0,1},/*7*/
-				{0,0,0,0,0,0,1,1,0}/*8*/
+				{0,0,0,0,0,0,1,1,0} /*8*/
 				};
 
-	curso->interaccion=&(**matriz);
-	curso->alumnos=&(*lumnoS);
+	for (int i=0; i<tam; i++){
+		for (int j=0; j<tam; j++){
+			curso.interaccion[i][j]=matriz[i][j];
+		}	
+	}
+	printf("hola2\n");
+//	(curso.interaccion[tam][tam])=(matriz);//		HACER	 VALOR	 POR	 VALOR
+	printf("hola3\n");
+	for (int h=1; h<tam; h++){
+		curso.alumnos[h]=alumnoS[h];
+	}
+	//(curso.alumnos)=(alumnoS);
+	printf("hola4\n");
 	return curso;
 }/*
 //---------------------------------------------------------------------------------------------------
