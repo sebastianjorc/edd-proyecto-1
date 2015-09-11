@@ -13,7 +13,16 @@
 //---------------------------------------------------------------------------------------------------
 typedef struct tipo_alumno{	char letra;	int prof,pos;}Alumno;
 //---------------------------------------------------------------------------------------------------
-void inicializar_alumnos ();
+void imprimir_alumno(Alumno alumno);
+void inicializar_alumnos (Alumno alumnoS[tam]);
+void inicializar_Q(Alumno cola[tam]);
+Alumno nuevo_v(Alumno Q[tam]);
+//---------------------------------------------------------------------------------------------------
+void imprimir_alumno(Alumno alumno){
+	printf("Letra: %c\t", alumno.letra);
+	printf("Prof:%i\t", alumno.prof);
+	printf("Pos:%i\n", alumno.pos);
+}
 //---------------------------------------------------------------------------------------------------
 void inicializar_alumnos (Alumno alumnoS[tam]){
 /*	for (int i=0; i<tam; i++){
@@ -30,12 +39,18 @@ void inicializar_alumnos (Alumno alumnoS[tam]){
 	(alumnoS[8].letra)='i'; (alumnoS[8].prof)=0;(alumnoS[8].pos)=8;
 }
 //---------------------------------------------------------------------------------------------------
+/*Alumno inicializar_alumno(Alumno alumno){
+	alumno.letra='NULL';
+	alumno.pos=NULL;
+	alumno.prof=NULL;
+	return alumno;
+}*/
+//---------------------------------------------------------------------------------------------------
 void inicializar_Q(Alumno cola[tam]){
-/*	for (int i=0; i<tam; i++){
-//		cola[i]=(Alumno*)malloc(sizeof(Alumno));
-		cola[i]=NULL;
+	cola=NULL;
+	for (int i=0; i<tam; i++){
+		imprimir_alumno(cola[i]);
 	}
-*/cola=NULL;
 }
 //---------------------------------------------------------------------------------------------------
 Alumno nuevo_v(Alumno Q[tam]){

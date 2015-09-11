@@ -30,29 +30,31 @@ void introduccion (){
 int main(){
 	int op,flag=1;
 	introduccion();
-	Curso curso;//=(Curso*)malloc(sizeof(curso));
-	curso=inicializar_curso();
+	Curso curso=inicializar_curso();
+	printf("hola1");
 	while (flag==1){
 		printf("Ingrese la forma para recorrer el Grafo (G):\n");
-		printf("BFS (1)\tDFS(2)");
+		printf("BFS (1)\tDFS(2): ");
 		scanf("%i",&op);getchar();
 		while (op!=1 && op!=2){
 		 	printf("Error, ingrese opción valida: ");
-			scanf("%i\n",&op);getchar();
+			scanf("%i",&op);getchar();
 		}
-		/*if (op==1){
-			metodo_BFS(curso, alumno[3]);	
+		if (op==1){
+	printf("hola1/2");
+			metodo_BFS(curso, curso.alumnos[3]);	
+	printf("hola6");
 		}
-		else if (op==2){
+		/*else if (op==2){
 			metodo_DFS();	
 		}
 		*/op=0;
 		printf("Desea seguir usando el programa?\n");
 		printf("Si (1)\tNo(2)\t: ");
-		scanf("%i\n",&op);getchar();
+		scanf("%i",&op);getchar();
 		while (op!=1 && op!=2){
 		 	printf("Error, ingrese opción valida: ");
-			scanf("%i\n",&op);getchar();
+			scanf("%i",&op);getchar();
 		}
 		if (op==2){
 			flag=0;
