@@ -65,7 +65,6 @@ Curso inicializar_curso (){
 			curso.interaccion[i][j]=matriz[i][j];
 		}
 	}
-//	imprimir_curso(curso);
 	return curso;
 }
 //---------------------------------------------------------------------------------------------------
@@ -105,7 +104,7 @@ void marco_adyacentes(Curso *curso, Alumno Q[tam], Alumno v, int profundidad, in
 /**/	for (int i=0; i<tam; i++){
 		if ((*curso).interaccion[(v.pos)][i]==1 && ((*curso).alumnos[i]).color==0){
 			((*curso).alumnos[i]).prof=profundidad;
-			Q[(*lugar)]=(*curso).alumnos[i];	//Q[(*lugar)].pos=*lugar;
+			Q[(*lugar)]=(*curso).alumnos[i];
 			(*curso).alumnos[i].color++;
 			(*lugar)++;
 			imprimir_alumno((*curso).alumnos[i]);
@@ -119,15 +118,13 @@ void metodo_BFS (Curso curso){
 	curso.alumnos[3].prof=profundidad; curso.alumnos[3].color=1;	Q[0]=curso.alumnos[3];	lugar++;
 	curso.alumnos[(Q[0].pos)].prof=profundidad;
 	while (Q_vacio(Q)==1){
-//		curso.alumnos[alumno.pos].prof=Q[0].prof=profundidad;
 		curso.alumnos[(Q[0].pos)].color++;
-		Q[0].color++;	alumno=nuevo_v(Q,&lugar);	//profundidad++;
-		imprimir_todo(curso,Q);	
-		if ( (profundidad)!=Q[1].prof || profundidad==0){
+		Q[0].color++;	alumno=nuevo_v(Q,&lugar);
+		if (  alumno.prof==Q[0].prof || profundidad==0){
 			profundidad++;
 		}
 		if (existen_adyacentes(alumno, curso)==1){
-			marco_adyacentes(&curso,Q,alumno,profundidad,&lugar); //REVISANDO
+			marco_adyacentes(&curso,Q,alumno,profundidad,&lugar); 
 		}
 	}
 	imprimir_curso(curso);getchar();
