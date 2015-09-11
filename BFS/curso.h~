@@ -33,26 +33,31 @@ void imprimir_matriz(int matriz[tam][tam]){
 	
 }
 //---------------------------------------------------------------------------------------------------
+void imprimir_adyacentes(Alumno alumno){
+}
+//---------------------------------------------------------------------------------------------------
 void imprimir_curso(Curso curso){
 	imprimir_matriz(curso.interaccion);
 	for (int i=0; i<tam; i++){
 		imprimir_alumno(curso.alumnos[i]);	
 	}
 }
+
 //---------------------------------------------------------------------------------------------------
 Curso inicializar_curso (){
 	Curso curso;
 	inicializar_alumnos(curso.alumnos);
+//				 a.b.c.d.e.f.g.h.i
 //				 0.1.2.3.4.5.6.7.8
-	int matriz[tam][tam]={	{0,1,1,1,1,0,0,0,0},/*0*/
-		     		{1,0,1,0,0,0,0,0,0},/*1*/
- 		    		{1,1,0,0,0,0,0,0,0},/*2*/
-		 		{0,0,0,0,1,1,0,0,0},/*3*/
-				{0,0,1,1,0,1,0,0,0},/*4*/
-				{0,0,0,1,1,0,0,0,0},/*5*/
-				{0,0,0,0,0,0,0,1,1},/*6*/
-				{0,0,0,0,0,0,1,0,1},/*7*/
-				{0,0,0,0,0,0,1,1,0} /*8*/
+	int matriz[tam][tam]={	{0,1,1,1,1,0,0,0,0},//0a
+		     		{1,0,1,0,0,0,0,0,0},//1b
+ 		    		{1,1,0,0,0,0,0,0,0},//2c
+		 		{0,0,0,0,1,1,0,0,0},//3d
+				{0,0,1,1,0,1,0,0,0},//4e
+				{0,0,0,1,1,0,0,0,1},//5f
+				{0,0,0,0,0,0,0,1,1},//6g
+				{0,0,0,0,0,0,1,0,1},//7h
+				{0,0,0,0,0,5,1,1,0} //8i
 				};
 
 	for (int i=0; i<tam; i++){
@@ -62,6 +67,17 @@ Curso inicializar_curso (){
 	}
 //	imprimir_curso(curso);
 	return curso;
+}
+//---------------------------------------------------------------------------------------------------
+void imprimir_todo(Curso curso, Alumno Q[tam]){
+	printf("Mis Cola: \n");
+	for (int i=0; i<tam; i++){
+		imprimir_alumno(Q[i]);
+	}
+	printf("Mis Alumnos: \n");
+	for (int i=0; i<tam; i++){
+		imprimir_alumno(curso.alumnos[i]);
+	}
 }
 //---------------------------------------------------------------------------------------------------
 int Q_vacio(Alumno Q[tam]){
@@ -82,34 +98,36 @@ int existen_adyacentes(Alumno v, Curso curso){
 	return 0;
 }
 //---------------------------------------------------------------------------------------------------
-void marco_adyacentes(Curso *curso, Alumno Q[tam], Alumno v){
-	int pos=0;
+void marco_adyacentes(Curso *curso, Alumno Q[tam], Alumno v, int profundidad, int *lugar){
+	printf("Le busco adyacentes a: \n");		
+	imprimir_alumno(v);getchar();
+	printf("Adyacentes de %c:\n", v.letra);
 	for (int i=0; i<tam; i++){
-		if ((*curso).interaccion[(v.pos)][i]==1){
-			Q[v.prof+pos]=(*curso).alumnos[i];
-			pos++;
+		if ((*curso).interaccion[(v.pos)][i]==1 && ((*curso).alumnos[i]).color==0){
+			((*curso).alumnos[i]).prof=profundidad;
+			Q[(*lugar)]=(*curso).alumnos[i];	//Q[(*lugar)].pos=*lugar;
+			(*curso).alumnos[i].color++;
+			(*lugar)++;
+			imprimir_alumno((*curso).alumnos[i]);
 		}
-	}	
+	}	getchar();
 }
-
 //---------------------------------------------------------------------------------------------------
-void metodo_BFS (Curso curso, Alumno alumno){
-	Alumno Q[tam];
-	inicializar_Q(Q);
-	Q[0]=alumno;
+void metodo_BFS (Curso curso){
+	int lugar, profundidad=lugar=0;
+	Alumno Q[tam];		inicializar_Q(Q);	Alumno alumno;
+	curso.alumnos[3].prof=profundidad; curso.alumnos[3].color=1;	Q[0]=curso.alumnos[3];	lugar++;
 	while (Q_vacio(Q)==1){
-/**/		printf("Mis Cola: \n");getchar();
-		for (int i=0; i<tam; i++){
-			imprimir_alumno(Q[i]);
-		}
-		printf("Mis Alumnos: \n");getchar();
-		for (int i=0; i<tam; i++){
-			imprimir_alumno(curso.alumnos[i]);
-		}
-		alumno=nuevo_v(Q); //ESTA BUENO
+//		curso.alumnos[alumno.pos].prof=Q[0].prof=profundidad;
+		curso.alumnos[(Q[0].pos)].prof=profundidad;	curso.alumnos[(Q[0].pos)].color++;
+		imprimir_todo(curso,Q);
+		Q[0].color++;	alumno=nuevo_v(Q,&lugar);	profundidad++;
 		if (existen_adyacentes(alumno, curso)==1){
-			marco_adyacentes(&curso,Q,alumno); //REVISANDO
-		}		
+			marco_adyacentes(&curso,Q,alumno,profundidad,&lugar); //REVISANDO
+		}	
+		if (Q[1].prof!=profundidad){
+			profundidad++;
+		}
 	}
 }
 //---------------------------------------------------------------------------------------------------

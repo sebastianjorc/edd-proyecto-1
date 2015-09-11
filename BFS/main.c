@@ -40,7 +40,7 @@ int main(){
 			scanf("%i",&op);getchar();
 		}
 		if (op==1){
-			metodo_BFS(curso, curso.alumnos[3]);
+			metodo_BFS(curso);
 		}
 		/*else if (op==2){
 			metodo_DFS();	
