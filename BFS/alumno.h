@@ -39,17 +39,12 @@ void inicializar_alumnos (Alumno alumnoS[tam]){
 	(alumnoS[8].letra)='i'; (alumnoS[8].prof)=0;(alumnoS[8].pos)=8;
 }
 //---------------------------------------------------------------------------------------------------
-/*Alumno inicializar_alumno(Alumno alumno){
-	alumno.letra='NULL';
-	alumno.pos=NULL;
-	alumno.prof=NULL;
-	return alumno;
-}*/
-//---------------------------------------------------------------------------------------------------
 void inicializar_Q(Alumno cola[tam]){
-	cola=NULL;
 	for (int i=0; i<tam; i++){
-		imprimir_alumno(cola[i]);
+		cola[i].letra='0';
+		cola[i].prof=0;
+		cola[i].pos=-1;
+	//	imprimir_alumno(cola[i]);
 	}
 }
 //---------------------------------------------------------------------------------------------------

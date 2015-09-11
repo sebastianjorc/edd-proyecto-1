@@ -1,4 +1,4 @@
-	//---------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
 #ifndef stdio_h
 #include <stdio.h>
 #define stdio_h
@@ -60,17 +60,16 @@ Curso inicializar_curso (){
 			curso.interaccion[i][j]=matriz[i][j];
 		}
 	}
-	imprimir_curso(curso);	
-	printf("hola4\n");
+//	imprimir_curso(curso);
 	return curso;
 }
 //---------------------------------------------------------------------------------------------------
 int Q_vacio(Alumno Q[tam]){
 	for (int i=0; i<tam; i++){
-/*		if (Q[i]!=NULL){
+		if (Q[i].pos!=-1){
 			return 1;
 		}
-*/	}
+	}
 	return 0;
 }
 //---------------------------------------------------------------------------------------------------
@@ -83,11 +82,11 @@ int existen_adyacentes(Alumno v, Curso curso){
 	return 0;
 }
 //---------------------------------------------------------------------------------------------------
-void marco_adyacentes(Curso curso, Alumno Q[tam], Alumno v){
+void marco_adyacentes(Curso *curso, Alumno Q[tam], Alumno v){
 	int pos=0;
 	for (int i=0; i<tam; i++){
-		if (curso.interaccion[(v.pos)][i]==1){
-			Q[v.pos]=curso.alumnos[i];
+		if ((*curso).interaccion[(v.pos)][i]==1){
+			Q[v.prof+pos]=(*curso).alumnos[i];
 			pos++;
 		}
 	}	
@@ -95,16 +94,24 @@ void marco_adyacentes(Curso curso, Alumno Q[tam], Alumno v){
 
 //---------------------------------------------------------------------------------------------------
 void metodo_BFS (Curso curso, Alumno alumno){
-	printf("hola2");
 	Alumno Q[tam];
 	inicializar_Q(Q);
-	printf("hola3");
 	Q[0]=alumno;
-/*	while (!Q_vacio(Q)){
-		nuevo_v(&Q);
-		if (existen_adyacentes(nuevo_v, curso)){
-			marco_adyacentes();
+	while (Q_vacio(Q)==1){
+/**/		printf("Mis Cola: \n");getchar();
+		for (int i=0; i<tam; i++){
+			imprimir_alumno(Q[i]);
+		}
+		printf("Mis Alumnos: \n");getchar();
+		for (int i=0; i<tam; i++){
+			imprimir_alumno(curso.alumnos[i]);
+		}
+		alumno=nuevo_v(Q); //ESTA BUENO
+		printf("Le busco adiacentes a: \n");		
+		imprimir_alumno(alumno);getchar();
+		if (existen_adyacentes(alumno, curso)==1){
+			marco_adyacentes(&curso,Q,alumno); //REVISANDO
 		}		
-	}*/
+	}
 }
 //---------------------------------------------------------------------------------------------------

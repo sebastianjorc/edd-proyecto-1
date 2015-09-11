@@ -31,7 +31,6 @@ int main(){
 	int op,flag=1;
 	introduccion();
 	Curso curso=inicializar_curso();
-	printf("hola1");
 	while (flag==1){
 		printf("Ingrese la forma para recorrer el Grafo (G):\n");
 		printf("BFS (1)\tDFS(2): ");
@@ -41,9 +40,7 @@ int main(){
 			scanf("%i",&op);getchar();
 		}
 		if (op==1){
-	printf("hola1/2");
-			metodo_BFS(curso, curso.alumnos[3]);	
-	printf("hola6");
+			metodo_BFS(curso, curso.alumnos[3]);
 		}
 		/*else if (op==2){
 			metodo_DFS();	

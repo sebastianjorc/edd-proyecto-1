@@ -41,6 +41,7 @@ int main(){
 		}
 		if (op==1){
 			metodo_BFS(curso, curso.alumnos[3]);	
+	printf("hola6");
 		}
 		/*else if (op==2){
 			metodo_DFS();	
