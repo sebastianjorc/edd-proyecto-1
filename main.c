@@ -42,10 +42,11 @@ int main(){
 		if (op==1){
 			metodo_BFS(curso);
 		}
-		/*else if (op==2){
-			metodo_DFS();	
+		else if (op==2){ //int o=3;
+			metodo_DFS(&curso,0,3);
+			imprimir_curso(curso);getchar();	
 		}
-		*/op=0;
+		op=0;
 		printf("Desea seguir usando el programa?\n");
 		printf("Si (1)\tNo(2)\t: ");
 		scanf("%i",&op);getchar();

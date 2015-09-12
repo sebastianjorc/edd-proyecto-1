@@ -130,5 +130,18 @@ void metodo_BFS (Curso curso){
 	imprimir_curso(curso);getchar();
 }
 //---------------------------------------------------------------------------------------------------
-	
+void metodo_DFS(Curso *curso, int profundidad, int pos){
+	(*curso).alumnos[pos].prof=profundidad;
+	(*curso).alumnos[pos].color=2;
+	imprimir_alumno((*curso).alumnos[pos]);
+	//MARCO
+	for (int i=0; i<tam; i++){
+		if ((*curso).alumnos[i].color!=2 && (*curso).interaccion[pos][i]==1){
+			pos=i; profundidad++;
+			metodo_DFS(&(*curso), profundidad, pos);
+		}	
+	//BUSCO POR VERTICE. con un ciclo.
+	}
+	//RETORNO
+}
 //---------------------------------------------------------------------------------------------------
